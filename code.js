@@ -1,4 +1,5 @@
 let myLibrary=[];
+let myBook=[];
 let body=document.querySelector('body');
 let newBook=document.querySelector('#newBook');
 let closeButton=document.querySelector('#close');
@@ -11,10 +12,11 @@ function book(bookName,pages,status){
     this.pages=pages;
     this.status=status;
 };
-function addBookToLibrary(aNewBook){
+function addBookToLibrary(aNewBook,e){
     myLibrary.push(aNewBook);
-    for (let i=0;i<myLibrary.length;i++){
-        let bookForm=document.createElement('form');
+    myBook.push(aNewBook);
+    for (let i=0;i<myBook.length;i++){
+        let bookForm=document.createElement('form');//creating a form to display books.
         bookForm.classList.add('my_books');
         theLibraryContainer.appendChild(bookForm);
         let theDiv1=document.createElement('div');
@@ -41,26 +43,18 @@ function addBookToLibrary(aNewBook){
         theDiv2.appendChild(theInputOfpages);
         let theDiv3=document.createElement('div');
         bookForm.appendChild(theDiv3);
-        let labelOfStatus=document.createElement('label');
-        labelOfStatus.setAttribute('for','readingStatus');
-        labelOfStatus.textContent=`Reading Status:`;
-        theDiv3.appendChild(labelOfStatus);
-        let theInputOfStatus=document.createElement('input');
-        theInputOfStatus.setAttribute('type','checkbox');
-        theInputOfStatus.setAttribute('name','status');
-        theInputOfStatus.setAttribute('id','readingStatus');
-        theDiv3.appendChild(theInputOfStatus);
         let theButtonOfStatus=document.createElement('button');
         theButtonOfStatus.setAttribute('id','changeStatus');
-        bookForm.appendChild(theButtonOfStatus);
+        theDiv3.appendChild(theButtonOfStatus);
         let theRemoveButton=document.createElement('button');
         theRemoveButton.setAttribute('id','removeForm');
         theRemoveButton.textContent='Remove'
         bookForm.appendChild(theRemoveButton);
-        myLibrary.forEach(book=>{
-            theInputOfBookName.setAttribute('value',`${book.bookName}`);
-            theInputOfpages.setAttribute('value',`${book.pages}`);
-            if(book.status=='on'){
+            theInputOfBookName.setAttribute('value',`${aNewBook.bookName}`);//giving the values to the inputs of the form
+            theInputOfBookName.setAttribute('disabled','disabled');
+            theInputOfpages.setAttribute('value',`${aNewBook.pages}`);
+            theInputOfpages.setAttribute('disabled','disabled');
+            if(aNewBook.status=='on'){
                 theButtonOfStatus.textContent='Read';
                 theButtonOfStatus.style.background='green';
             }
@@ -72,31 +66,33 @@ function addBookToLibrary(aNewBook){
                 if(theButtonOfStatus.textContent=='Read'){
                     theButtonOfStatus.textContent='Not Read';
                     theButtonOfStatus.style.background='red';
-                    book.status='off';
+                    aNewBook.status='off';
                 }
                 else{
                     theButtonOfStatus.textContent='Read';
                     theButtonOfStatus.style.background='green';
-                    book.status='on';
+                    aNewBook.status='on';
                 }
                 e.preventDefault();
             });
             theRemoveButton.addEventListener('click',(e)=>{
                 bookForm.remove();
-                e.preventDefault()
-            })
-        });
+                e.preventDefault();
+                delete myBook[i];
+            });
+        console.log (myBook);
     };
+
 };
-newBook.addEventListener('click',()=>{
-    theData.showModal();
+newBook.addEventListener('click',()=>{          
+    theData.showModal();//opening the dialogue
 });
-closeButton.addEventListener('click',()=>{
+closeButton.addEventListener('click',(e)=>{
     let myNewBook=new book();
     myNewBook.bookName=document.getElementById('bookName').value;
     myNewBook.pages=document.getElementById('pages').value;
     myNewBook.status=document.getElementById('status').value;
     addBookToLibrary(myNewBook);
-    myLibrary=[];
+    myBook=[];
     theData.close();
 })
