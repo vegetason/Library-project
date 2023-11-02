@@ -10,22 +10,21 @@
 <body>
     <button id="newBook">NEW BOOK!!!</button>
     <dialog id="myData">
-        <form action="" method="post">
+        <form action="https://httpbin.org/post" method="post" id="dialog">
             <div>
-                <label for="bookName">Book_Name</label>
-                <input type="text" name="bookName" id="bookName" required>
+                <label for="bookName">Book_Name:</label>
+                <input type="text" name="bookName" id="bookName" placeholder="The Batman" required>
             </div>
             <div>
-                <label for="bookPages">Pages</label>
-                <input type="number" name="pages" id="pages" required>
+                <label for="bookPages">Pages:</label>
+                <input type="number" name="pages" id="bookPages" placeholder="400" required>
             </div>
             <div>
-                <label for="status">Reading Status</label>
+                <label for="status">Reading Status:</label>
                 <input type="checkbox" name="status" id="status">
             </div>
         </form>
         <button id="close">Close</button>
     </dialog>
-
 </body>
 </html>

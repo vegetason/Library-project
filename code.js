@@ -6,18 +6,23 @@ let closeButton=document.querySelector('#close');
 let theData=document.querySelector('#myData');
 let theLibraryContainer=document.createElement('div');
 theLibraryContainer.setAttribute('id','theContainer');
+let theLastSentence=document.createElement('div')
+theLastSentence.textContent='@The Odin Project 2023'
+theLastSentence.setAttribute('id','last');
 body.appendChild(theLibraryContainer);
+body.appendChild(theLastSentence);
 function book(bookName,pages,status){
     this.bookName=bookName;
     this.pages=pages;
     this.status=status;
 };
-function addBookToLibrary(aNewBook,e){
+function addBookToLibrary(aNewBook){
     myLibrary.push(aNewBook);
     myBook.push(aNewBook);
     for (let i=0;i<myBook.length;i++){
         let bookForm=document.createElement('form');//creating a form to display books.
         bookForm.classList.add('my_books');
+        bookForm.setAttribute('action','https://httpbin.org/post')
         theLibraryContainer.appendChild(bookForm);
         let theDiv1=document.createElement('div');
         bookForm.appendChild(theDiv1);
@@ -90,9 +95,10 @@ newBook.addEventListener('click',()=>{
 closeButton.addEventListener('click',(e)=>{
     let myNewBook=new book();
     myNewBook.bookName=document.getElementById('bookName').value;
-    myNewBook.pages=document.getElementById('pages').value;
+    myNewBook.pages=document.getElementById('bookPages').value;
     myNewBook.status=document.getElementById('status').value;
     addBookToLibrary(myNewBook);
     myBook=[];
+    e.preventDefault();
     theData.close();
 })

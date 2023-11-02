@@ -1,0 +1,158 @@
+html{
+    width: 100vw;
+    height: auto;
+    box-sizing: border-box;
+}
+body{
+    margin: 0px;
+    width: auto;
+    height:auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    background-color: wheat;
+}
+#theContainer{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    height: 80%;
+    align-self: auto;
+    gap: 20px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+.my_books{
+    height: 280px;
+    width: 300px;
+    border: 1px solid black;
+    box-shadow: 10px 10px 5px black;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: white;
+
+}
+.my_books:hover{
+    box-shadow: 40px 40px 40px black;
+}
+body > #theContainer > .my_books > div + div + div{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    padding: 5px;
+}
+.my_books div:first-child,.my_books div:nth-child(2) {
+    display: flex;
+    font-family: 'Courier New',monospace;
+    font-size: medium;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding-left: 3px;
+    padding-top: 3px;
+    font-weight: bold;
+}
+.my_books > div + div + div button{
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    font-family: 'Courier New',monospace;
+    border-radius: 6px;
+}
+.my_books > div + div + div button:hover{
+    box-shadow: 4px 4px 4px black;
+}
+.my_books input{
+    font-size: medium;
+    font-family: 'Courier New',monospace;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow:scroll;
+    text-overflow: ellipsis;
+}
+.my_books div:first-child:hover,.my_books div:nth-child(2):hover{
+    box-shadow: 4px 4px 4px black;
+}
+#dialog{
+    height: 250px;
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 10px;
+    padding: 10px;
+    font-family: 'Courier New',monospace;
+    font-weight: bold;
+}
+#dialog:hover{
+    box-shadow: 40px 40px 40px black;
+}
+
+#myData::backdrop{
+    background-color: rgb(187, 180, 180);
+}
+#close {
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    font-family: 'Courier New',monospace;
+    border-radius: 6px;
+    background-color: aqua;
+    margin-top:10px;
+}
+#close:hover{
+    box-shadow: 4px 4px 4px black;
+}
+#myData input{
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+dialog{
+    border-radius: 20px;
+    border: 2px solid black;
+    box-shadow: 5px 5px 5px black;
+}
+#removeForm{
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    font-family: 'Courier New',monospace;
+    border-radius: 6px;
+    background-color:darkturquoise;
+    margin-top:10px;
+    align-self: center;
+}
+#removeForm:hover{
+    box-shadow: 4px 4px 4px black;
+}
+#newBook{
+    width: 200px;
+    height: 30px;
+    font-size: 15px;
+    font-family: 'Courier New',monospace;
+    border-radius: 6px;
+    background-color:rgb(3, 224, 228);
+    margin-top:10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#newBook:hover{
+    box-shadow: 4px 4px 4px black;
+}
+label{
+    background-color: blanchedalmond;
+}
+#last{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    font-size: medium;
+}
