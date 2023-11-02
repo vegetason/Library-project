@@ -156,3 +156,14 @@ label{
     font-size: medium;
     font-size: medium;
 }
+h1{
+    align-self: flex-start;
+    padding-left: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    letter-spacing: 3px;
+    font-size: 50px;
+}
+h1:hover{
+    text-shadow: 3px 3px 3px black;
+}
